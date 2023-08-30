@@ -17,6 +17,8 @@ public class WebAppTest {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless"); // Run headless browser
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
     }
 
