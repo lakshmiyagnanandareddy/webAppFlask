@@ -638,7 +638,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-12 ">
+                <div class="col-md-6 col-12">
                     <div class="card mb-3">
                         <img class="card-img position-relative" src="fruits&vegetablesBackground.jpg" alt="fruits & vegetables background">
                         <div class="card-img-overlay position-absolute d-none d-lg-block" style="top:10%">
