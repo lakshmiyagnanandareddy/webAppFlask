@@ -1428,7 +1428,7 @@
                     <div class="col">
                         <ul class="nav d-block">
                             <li class="nav-item mb-1"><h5 style="font-weight: 400; font-size: 110%">For Consumers</h5></li>
-                            <li class="nav-item mb-1"><a href="#" class="footerLinks">Product Returns</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="footerLinks" id>Product Returns</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">FAQ</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Shipping</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Payments</a></li>
@@ -1436,7 +1436,7 @@
                     </div>
                     <div class="col">
                         <ul class="nav d-block">
-                            <li class="nav-item mb-1"><h5 style="font-weight:400; font-size:110%">Get to know Us</h5></li>
+                            <li class="nav-item mb-1"><h5 style="font-weight:400; font-size:110%" id="sel">Get to know Us</h5></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Blog</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">About</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Company</a></li>
