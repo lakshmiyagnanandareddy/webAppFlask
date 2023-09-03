@@ -35,12 +35,12 @@ public class WebAppTest {
         // String pageSource = driver.getPageSource();
         
          // Locate the card title and content
-        WebElement cardTitle = driver.findElement(By.xpath("//h5[text()='Fruits & Vegetables']"));
-        WebElement cardContent = driver.findElement(By.xpath("//p[text()='Get Upto 30% off']"));
+        WebElement secondDiv = driver.findElement(By.xpath("//h5[@class="selenium_test-1.1")]"));
+        assertTrue(secondDiv.getText().contains("Fruits & Vegetables"));
+        WebElement thirdDiv = driver.findElement(By.xpath("//p[@class="selenium_test-1.2")]"));
+        assertTrue(thirdDiv.getText().contains("Get Upto 30% off"));
         
         // Validate the card title and content
-        assertTrue(cardTitle.isDisplayed());
-        assertTrue(cardContent.isDisplayed());
         
 
         // Locate the elements within the "Fruits & Vegetables" card
