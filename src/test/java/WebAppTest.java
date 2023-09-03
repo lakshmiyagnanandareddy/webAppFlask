@@ -29,7 +29,7 @@ public class WebAppTest {
 
     @Test
     public void testWebPageContent() {
-        driver.get("http://3.88.195.199:9099/"); // Replace with your server URL
+        driver.get("http://54.87.244.239:9099/"); // Replace with your server URL
         String pageSource = driver.getPageSource();
 
         assertTrue(pageSource.contains("Lakshmi reddy's webserver"));
