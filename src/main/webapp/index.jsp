@@ -636,14 +636,14 @@
                 </div>
             </div>
         </div>
-        <div class="container s-test2">
-            <div class="row s-test">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-6 col-12 ">
                     <div class="card mb-3">
                         <img class="card-img position-relative" src="fruits&vegetablesBackground.jpg" alt="fruits & vegetables background">
                         <div class="card-img-overlay position-absolute d-none d-lg-block" style="top:10%">
-                            <h5 class="card-title fw-bold selenium_test-1.1">Fruits & Vegetables</h5>
-                            <p class="selenium_test-1.2">Get Upto 30% off</p>
+                            <h5 class="card-title fw-bold">Fruits & Vegetables</h5>
+                            <p>Get Upto 30% off</p>
                             <a href="#" class="btn-danger p-2 text-decoration-none rounded">Shop Now</a>
                         </div>
                         <div class="card-img-overlay position-absolute d-lg-none" style="top: 8%;">
@@ -653,7 +653,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12 s-test">
+                <div class="col-md-6 col-12">
                     <div class="card" style="height: 60%;">
                         <img class="card-img position-relative" style="height: 100%;" src="allgrocoriesBackground.jpg" alt="allgrocoriesBackground">
                         <div class="card-img-overlay position-absolute d-none d-lg-block" style="top:10%">
