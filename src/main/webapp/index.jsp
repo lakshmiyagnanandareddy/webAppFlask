@@ -642,7 +642,7 @@
                     <div class="card mb-3">
                         <img class="card-img position-relative" src="fruits&vegetablesBackground.jpg" alt="fruits & vegetables background">
                         <div class="card-img-overlay position-absolute d-none d-lg-block" style="top:10%">
-                            <h5 class="card-title fw-bold">Fruits & Vegetables</h5>
+                            <h5 class="card-title fw-bold selenium">Fruits & Vegetables</h5>
                             <p>Get Upto 30% off</p>
                             <a href="#" class="btn-danger p-2 text-decoration-none rounded">Shop Now</a>
                         </div>
