@@ -34,9 +34,13 @@ public class WebAppTest {
         driver.get("http://184.72.120.19:9099/"); // Replace with your server URL
         // String pageSource = driver.getPageSource();
         
-        WebElement secondDiv = driver.findElement(By.xpath("//div[contains(@class, 'container')]"));
-        assertTrue(secondDiv.getText().contains("Fruits & Vegetables"));
-        assertTrue(secondDiv.getText().contains("Get Upto 30% off"));
+         // Locate the card title and content
+        WebElement cardTitle = driver.findElement(By.xpath("//h5[text()='Fruits & Vegetables']"));
+        WebElement cardContent = driver.findElement(By.xpath("//p[text()='Get Upto 30% off']"));
+        
+        // Validate the card title and content
+        assertTrue(cardTitle.isDisplayed());
+        assertTrue(cardContent.isDisplayed());
         
 
         // Locate the elements within the "Fruits & Vegetables" card
