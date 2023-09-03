@@ -1,0 +1,66 @@
+service:
+  spec:
+    ports:
+      port: 7777
+      protocol: "TCP"
+      targetPort: 7777
+      nodePort: 30500
+    type: "NodePort"
+
+deployment:
+  spec:
+    template:
+      spec:
+        containers:
+          image: "nandu9948/jenkins_webapp"
+          name: "jenkins-webapp"
+          ports:
+            containerPort: 7777
+          livenessProbe:
+            httpGet:
+              path: "/webApp/"
+              port: 7777
+            initialDelaySeconds: 40
+            timeoutSeconds: 100
+            periodSeconds: 10
+            failureThreshold: 2
+          readinessProbe:
+            httpGet:
+              path: "/webApp/"
+              port: 7777
+            initialDelaySeconds: 50
+            timeoutSeconds: 600
+            periodSeconds: 10
+            failureThreshold: 1
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "10m"
+            limits:
+              memory: "150Mi"
+              cpu: "40m"
+
+quotas:
+  spec:
+    hard:
+      cpu: "500m"
+      memory: "700Mi"
+      pods: "6"
+
+autoScaling:
+  spec:
+    scaleTargetRef:
+      apiVersion: "apps/v1"
+      kind: "Deployment"
+      name: "ecommerce-web"
+    minReplicas: 2
+    maxReplicas: 5
+    metrics:
+      type: "Resource"
+      resource:
+        name: "cpu"
+        target:
+          type: "Utilization"
+          averageUtilization: 80 
+
+

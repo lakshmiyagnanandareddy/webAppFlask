@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: webserverscale
+spec:
+  scaleTargetRef:
+    apiVersion: {{.Values.autoScaling.spec.scaleTargetRef.apiVersion}}
+    kind: {{.Values.autoScaling.spec.scaleTargetRef.kind}}
+    name: {{.Values.autoScaling.spec.scaleTargetRef.name}}
+  minReplicas: {{.Values.autoScaling.spec.minReplicas}}
+  maxReplicas: {{.Values.autoScaling.spec.maxReplicas}}
+  metrics:
+  - type: {{.Values.autoScaling.spec.metrics.type}}
+    resource:
+      name: {{.Values.autoScaling.spec.metrics.resource.name}}
+      target:
+        type: {{.Values.autoScaling.spec.metrics.resource.target.type}}
+        averageUtilization: {{.Values.autoScaling.spec.metrics.resource.target.averageUtilization}}

@@ -1,0 +1,10 @@
+# this is used to not exceed the usage of the resources to the namespaces.
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resource-quota
+spec:
+  hard:
+    cpu: {{.Values.quotas.spec.hard.cpu}}
+    memory: {{.Values.quotas.spec.hard.memory}}
+    pods: {{.Values.quotas.spec.hard.pods}}

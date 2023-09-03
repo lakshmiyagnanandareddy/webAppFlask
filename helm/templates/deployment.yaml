@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ecommerceweb
+  name: ecommerce-web
+spec:
+  selector:
+    matchLabels:
+      app: ecommerceweb
+  template:
+    metadata:
+      labels:
+        app: ecommerceweb
+    spec:
+      containers:
+      - image: {{.Values.deployment.spec.template.spec.containers.image}}
+        name: {{.Values.deployment.spec.template.spec.containers.name}}
+        ports:
+        - containerPort: {{.Values.deployment.spec.template.spec.containers.ports.containerPort}}
+        livenessProbe:
+          httpGet:
+            path: {{.Values.deployment.spec.template.spec.containers.livenessProbe.httpGet.path}}
+            port: {{.Values.deployment.spec.template.spec.containers.livenessProbe.httpGet.port}}
+          initialDelaySeconds: {{.Values.deployment.spec.template.spec.containers.livenessProbe.initialDelaySeconds}}
+          timeoutSeconds: {{.Values.deployment.spec.template.spec.containers.livenessProbe.timeoutSeconds}}
+          periodSeconds: {{.Values.deployment.spec.template.spec.containers.livenessProbe.periodSeconds}}
+          failureThreshold: {{.Values.deployment.spec.template.spec.containers.livenessProbe.failureThreshold}}
+        readinessProbe:
+          httpGet:
+            path: {{.Values.deployment.spec.template.spec.containers.readinessProbe.httpGet.path}}
+            port: {{.Values.deployment.spec.template.spec.containers.readinessProbe.httpGet.port}}
+          initialDelaySeconds: {{.Values.deployment.spec.template.spec.containers.readinessProbe.initialDelaySeconds}}
+          timeoutSeconds: {{.Values.deployment.spec.template.spec.containers.readinessProbe.timeoutSeconds}}
+          periodSeconds: {{.Values.deployment.spec.template.spec.containers.readinessProbe.periodSeconds}}
+          failureThreshold: {{.Values.deployment.spec.template.spec.containers.readinessProbe.failureThreshold}}
+        resources:
+          requests:
+            memory: {{.Values.deployment.spec.template.spec.containers.resources.requests.memory}}
+            cpu: {{.Values.deployment.spec.template.spec.containers.resources.requests.cpu}}
+          limits:
+            memory: {{.Values.deployment.spec.template.spec.containers.resources.limits.memory}}
+            cpu: {{.Values.deployment.spec.template.spec.containers.resources.limits.cpu}}
