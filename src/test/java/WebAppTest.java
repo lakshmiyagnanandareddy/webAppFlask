@@ -44,9 +44,8 @@ public class WebAppTest {
         // String pageSource = driver.getPageSource();
 
         // Locate the elements within the "All Groceries" card
-        WebElement thirdDiv = driver.findElement(By.xpath("//div[contains(@class, 'container s-test2')]/div[@class='row s-test']/div[@class='col-md-6 col-12 s-test'][2]"));
-        assertTrue(thirdDiv.getText().contains("Order Value of 1200rs"));
-        assertTrue(thirdDiv.getText().contains("Get Flat Upto Rs.300off"));
+        String actualWelcome = driver.findElement(By.id("sel2")).getText();
+        assertEquals("Atta, Rice & Dall", actualWelcome);
 
     }
 }
