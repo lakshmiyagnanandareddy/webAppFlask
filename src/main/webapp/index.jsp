@@ -636,9 +636,9 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-12">
+        <div class="container s-test2">
+            <div class="row s-test">
+                <div class="col-md-6 col-12 ">
                     <div class="card mb-3">
                         <img class="card-img position-relative" src="fruits&vegetablesBackground.jpg" alt="fruits & vegetables background">
                         <div class="card-img-overlay position-absolute d-none d-lg-block" style="top:10%">
@@ -653,7 +653,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-md-6 col-12 s-test">
                     <div class="card" style="height: 60%;">
                         <img class="card-img position-relative" style="height: 100%;" src="allgrocoriesBackground.jpg" alt="allgrocoriesBackground">
                         <div class="card-img-overlay position-absolute d-none d-lg-block" style="top:10%">
