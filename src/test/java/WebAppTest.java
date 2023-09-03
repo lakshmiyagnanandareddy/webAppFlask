@@ -13,7 +13,7 @@ public class WebAppTest {
     private WebDriver driver;
 
     @Before
-    public void setUp() {
+    public void setUp()  {
         // Set the path to the ChromeDriver executable
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver/chromedriver");
 
