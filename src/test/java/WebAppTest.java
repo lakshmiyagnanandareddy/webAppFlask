@@ -35,10 +35,8 @@ public class WebAppTest {
         // String pageSource = driver.getPageSource();
         
          // Locate the card title and content
-       WebElement cardTitle = driver.findElement(By.xpath("//h5[contains(@class, 'selenium')]"));
-        assertEquals("Fruits & Vegetables", cardTitle.getText());
-        // You can add more assertions to test other parts of the HTML content
-    }
+       String actualWelcomeMessage = driver.findElement(By.id("sel")).getText();
+        assertEquals("Get to know Us", actualWelcomeMessage);
     
     @Test
     public void testAllGroceriesCard() {
