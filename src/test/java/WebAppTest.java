@@ -37,7 +37,7 @@ public class WebAppTest {
          // Locate the card title and content
        String actualWelcomeMessage = driver.findElement(By.id("sel")).getText();
         assertEquals("Get to know Us", actualWelcomeMessage);
-    
+    }
     @Test
     public void testAllGroceriesCard() {
         driver.get("http://3.87.53.183:9099/"); // Replace with your server URL
