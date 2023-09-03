@@ -1383,7 +1383,7 @@
                         <ul class="nav d-block">
                             <li class="nav-item"><h5 style="font-weight: 400; font-size: 110%;">Categories</h5></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">breakfast & Instant Food</a></li>
-                            <li class="nav-item mb-1"><a href="#" class="footerLinks">Atta, Rice & Dall</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="footerLinks" id="sel2">Atta, Rice & Dall</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Vegetables & Fruits</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Baby Care</a></li>
                             <li class="nav-item mb-1"><a href="#" class="footerLinks">Bakery & Biscuits</a></li>
