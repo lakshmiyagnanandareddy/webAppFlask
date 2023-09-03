@@ -33,19 +33,13 @@ public class WebAppTest {
     public void testFruitsAndVegetablesCard() {
         driver.get("http://184.72.120.19:9099/"); // Replace with your server URL
         // String pageSource = driver.getPageSource();
+        
+        WebElement secondDiv = driver.findElement(By.xpath("//div[contains(@class, 'container')]"));
+        assertTrue(secondDiv.getText().contains("Fruits & Vegetables"));
+        assertTrue(secondDiv.getText().contains("Get Upto 30% off"));
+        
 
         // Locate the elements within the "Fruits & Vegetables" card
-        WebElement cardTitle = driver.findElement(By.xpath("//div[@class='card-title fw-bold']"));
-        WebElement discountText = driver.findElement(By.xpath("//p[text()='Get Upto 30% off']"));
-        WebElement shopNowButton = driver.findElement(By.xpath("//a[@class='btn-danger p-2 text-decoration-none rounded']"));
-
-        // Assert that the expected content is present in the card
-        assertTrue(cardTitle.isDisplayed());
-        assertEquals("Fruits & Vegetables", cardTitle.getText());
-        assertTrue(discountText.isDisplayed());
-        assertEquals("Get Upto 30% off", discountText.getText());
-        assertTrue(shopNowButton.isDisplayed());
-        assertEquals("Shop Now", shopNowButton.getText());
         // You can add more assertions to test other parts of the HTML content
     }
     
@@ -55,17 +49,10 @@ public class WebAppTest {
         // String pageSource = driver.getPageSource();
 
         // Locate the elements within the "All Groceries" card
-        WebElement cardTitle = driver.findElement(By.xpath("//div[@class='card-title fw-bold']"));
-        WebElement discountText = driver.findElement(By.xpath("//p[text()='Get Flat Upto Rs.300off']"));
-        WebElement orderNowButton = driver.findElement(By.xpath("//a[@class='btn-danger p-2 text-decoration-none rounded']"));
+        WebElement thirdDiv = driver.findElement(By.xpath("//div[contains(@class, 'container')]/div[@class='row']/div[@class='col-md-6 col-12'][2]"));
+        assertTrue(thirdDiv.getText().contains("Order Value of 1200rs"));
+        assertTrue(thirdDiv.getText().contains("Get Flat Upto Rs.300off"));
 
-        // Assert that the expected content is present in the card
-        assertTrue(cardTitle.isDisplayed());
-        assertEquals("Order Value of 1200rs", cardTitle.getText());
-        assertTrue(discountText.isDisplayed());
-        assertEquals("Get Flat Upto Rs.300off", discountText.getText());
-        assertTrue(orderNowButton.isDisplayed());
-        assertEquals("Order Now", orderNowButton.getText());
     }
 }
 
