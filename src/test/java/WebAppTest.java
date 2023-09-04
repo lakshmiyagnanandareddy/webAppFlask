@@ -40,7 +40,7 @@ public class WebAppTest {
     }
     @Test
     public void testAllGroceriesCard() {
-        driver.get("http://54.91.204.246:9099/"); // Replace with your server URL
+        driver.get("http://3.91.99.123:9099/"); // Replace with your server URL
         // String pageSource = driver.getPageSource();
 
         // Locate the elements within the "All Groceries" card
