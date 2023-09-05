@@ -5,6 +5,7 @@ pipeline {
     }
     options {
       skipStagesAfterUnstable()
+      skipDefaultCheckout()
     }
     environment {
                 DOCKERHUB_CRED = credentials('dockerhubCred')
