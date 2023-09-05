@@ -22,19 +22,13 @@ pipeline {
                         
                         def my
                         sh 'ls -l'
-                        println readFile(file: "my.txt")
                         try {
-                            my = sh(script: 'ls -l', returnStdout: true).trim()
-                            writeFile file: 'my.txt', text: my
+                            sh 'ls '
                         } finally {
                             sh 'ls -l'
-                            println readFile(file: "my.txt")
-                            println readFile(file: "my.txt").split("\n")[0]
                         }
                     } else {
                         echo "Administrator has denied the stage."
-                        currentBuild.result = 'ABORTED'
-                        error "Administrator denied approval."
                     }
                 }
             }
