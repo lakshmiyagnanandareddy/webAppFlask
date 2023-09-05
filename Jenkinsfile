@@ -39,7 +39,7 @@ pipeline {
         
         stage("Testing") {
             agent {
-                label "dockerMavenProd"
+                label "dockerMaven"
             }
              steps{
                  dir(path: '/workspace/webApp') {
@@ -49,7 +49,7 @@ pipeline {
                     try{
                         sh 'docker rm -f myd'
                     }catch(err){
-                        echo "$err"
+                        echo err
                     }
                     sh 'docker run -dit -v /workspace/webApp:/project -p 9099:9099 --name myd nandu9948/jenkins_maven:latest'
                     sh 'docker exec myd /bin/bash -c "cd /project && mvn jetty:run & sleep 30s && cd /project && mvn package"'
@@ -60,12 +60,15 @@ pipeline {
             }
             post{
                 failure{
-                    mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project in the production stage''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
+                    mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
                 }
                 success{
                     dir(path: '/workspace/webApp') {
-                        script {
-                            archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
+                        script{
+                        
+                        sh "pwd"
+                        sh "ls"
+                        archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
                         }
                     }
                 }
@@ -78,7 +81,6 @@ pipeline {
                             catch(error){
                                 echo "Maven didn't generates any test file"
                             }
-                            sh "rm -rf /workspace/webApp/*"
                         }
                     }
                 }
