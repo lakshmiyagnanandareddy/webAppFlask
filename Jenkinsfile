@@ -5,6 +5,7 @@ pipeline {
     }
     options {
       skipStagesAfterUnstable()
+      skipDefaultCheckout()
     }
     environment {
                 DOCKERHUB_CRED = credentials('dockerhubCred')
@@ -20,7 +21,7 @@ pipeline {
                         try{
                             sh 'rm -rf /workspace/webApp/*'
                         }catch(err){
-                            echo err
+                            echo "$err"
                         }  
                     }
                     git branch: 'dev', url: 'https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
@@ -48,7 +49,7 @@ pipeline {
                     try{
                         sh 'docker rm -f myd'
                     }catch(err){
-                        echo err
+                        echo "$err"
                     }
                     sh 'docker run -dit -v /workspace/webApp:/project -p 9099:9099 --name myd nandu9948/jenkins_maven:latest'
                     sh 'docker exec myd /bin/bash -c "cd /project && mvn jetty:run & sleep 30s && cd /project && mvn package"'
@@ -62,15 +63,22 @@ pipeline {
                     mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project in the production stage''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
                 }
                 success{
-                    archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
+                    dir(path: '/workspace/webApp') {
+                        script {
+                            archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
+                        }
+                    }
                 }
                 always{
-                    script{
-                        try{
-                            junit 'target/surefire-reports/*.xml'
-                        }
-                        catch(error){
-                            echo "Maven didn't generates any test file"
+                    dir(path: '/workspace/webApp') {
+                        script{
+                            try{
+                                junit 'target/surefire-reports/*.xml'
+                            }
+                            catch(error){
+                                echo "Maven didn't generates any test file"
+                            }
+                            sh "rm -rf /workspace/webApp/*"
                         }
                     }
                 }
