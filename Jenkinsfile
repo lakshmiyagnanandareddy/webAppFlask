@@ -94,7 +94,7 @@ pipeline {
             steps{
                 unstash 'dockerfile'
                 unstash 'projectPackage'
-                sh 'mv /workspace/webApp/target/*war /workspace/webApp'
+                sh 'mv target/*war .'
                 sh 'docker login -u $DOCKERHUB_CRED_USR -p $DOCKERHUB_CRED_PSW'
                 sh 'docker build -t nandu9948/jenkins_webapp .'
                 sh 'docker push nandu9948/jenkins_webapp'
