@@ -62,7 +62,12 @@ pipeline {
                     mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
                 }
                 success{
-                    archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
+                    script{
+                        unstash "projectPackage"
+                        sh "pwd"
+                        sh "ls"
+                        archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
+                    }
                 }
                 always{
                     script{
