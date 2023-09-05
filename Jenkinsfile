@@ -142,13 +142,20 @@ pipeline {
                 label 'dynamicGit'
                 }
                 script{
-                    def approval = input(
-                        id: 'userInput',
-                        message: 'Do you want to push this code to production server ?',
-                        parameters: [
-                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'yes', name: 'APPROVE']
-                        ]
-                    )
+                    def approval = false
+                    try{
+                        timeout(time: 60, unit: 'SECONDS') {
+                            approval = input(
+                                id: 'userInput',
+                                message: 'Do you want to push this code to production server ?',
+                                parameters: [
+                                    [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Do you want to push this code to production server ?', name: 'APPROVE']
+                                ]
+                            )
+                        }
+                    } catch (err) {
+                        echo "The administrator didn't provide any input regarding whether they want to 'APPROVE' or 'DENY' the request to move the source code to the production stage."
+                    }
                     if (approval) {
                          sh 'git clone https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                         dir(path: 'webAppFlask') {
@@ -158,7 +165,7 @@ pipeline {
                             sh 'git push -u origin main'
                         }
                     }else{
-                        echo "Administrator Denied Approval"
+                        echo "Administrator Denied Approval to move the source code to production stage"
                     }
                 }
             }
