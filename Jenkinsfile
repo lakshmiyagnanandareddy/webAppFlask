@@ -9,7 +9,7 @@ pipeline {
                 script {
                     def approval = input(
                         id: 'userInput',
-                        message: 'Do you want to approve this stage?',
+                        message: 'Do you want to apdprove this stage?',
                         parameters: [
                             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Approve', name: 'APPROVE']
                         ]
