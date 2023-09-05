@@ -31,7 +31,7 @@ public class WebAppTest {
 
     @Test
     public void testFruitsAndVegetablesCard() {
-        driver.get("http://54.92.176.2:9099/");  // Replace with your server URL
+        driver.get("http://54.92.176.2:9099/"); // Replace with your server URL
         // String pageSource = driver.getPageSource();
         
          // Locate the card title and content
