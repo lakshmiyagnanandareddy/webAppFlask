@@ -62,20 +62,24 @@ pipeline {
                     mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
                 }
                 success{
-                    script{
-                        unstash "projectPackage"
+                    dir(path: '/workspace/webApp') {
+                        script{
+                        
                         sh "pwd"
                         sh "ls"
                         archiveArtifacts artifacts: 'target/*.war', followSymlinks: false, onlyIfSuccessful: true
+                        }
                     }
                 }
                 always{
-                    script{
-                        try{
-                            junit 'target/surefire-reports/*.xml'
-                        }
-                        catch(error){
-                            echo "Maven didn't generates any test file"
+                    dir(path: '/workspace/webApp') {
+                        script{
+                            try{
+                                junit 'target/surefire-reports/*.xml'
+                            }
+                            catch(error){
+                                echo "Maven didn't generates any test file"
+                            }
                         }
                     }
                 }
@@ -89,7 +93,7 @@ pipeline {
             steps{
                 unstash 'dockerfile'
                 unstash 'projectPackage'
-                sh 'mv /workspace/webApp/target/*war /workspace/webApp'
+                sh 'mv target/*war .'
                 sh 'docker login -u $DOCKERHUB_CRED_USR -p $DOCKERHUB_CRED_PSW'
                 sh 'docker build -t nandu9948/jenkins_webapp .'
                 sh 'docker push nandu9948/jenkins_webapp'
