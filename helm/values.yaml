@@ -4,7 +4,7 @@ service:
       port: 7777
       protocol: "TCP"
       targetPort: 7777
-      nodePort: 30500
+      nodePort: 30999
     type: "NodePort"
 
 deployment:
