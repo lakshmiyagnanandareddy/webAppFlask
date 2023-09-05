@@ -18,7 +18,6 @@ pipeline {
                     if (approval) {
                         echo "Administrator has approved the stage."
                         
-                        // Add your stage-specific steps here
                         
                         def my
                         sh 'ls -l'
