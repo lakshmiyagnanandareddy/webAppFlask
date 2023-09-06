@@ -5,6 +5,8 @@ metadata:
     app: ecommerceweb
   name: ecommerce-web
   namespace: ecommerce
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   selector:
     matchLabels:
