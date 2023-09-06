@@ -60,7 +60,7 @@ pipeline {
             }
             post{
                 failure{
-                    mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
+                    mail bcc: '', body: '''We have an error in pipeline on Testing stage while testing and building package in the ecommerce project in the production''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
                 }
                 success{
                     dir(path: '/workspace/webApp') {
@@ -118,7 +118,7 @@ pipeline {
                     unstash "helmPackage"
                     def helm_project_name
                     try{
-                        helm_project_name = sh(script:'helm status ecommerce --kubeconfig $KUBE_CONFIG', returnStdout: true).trim()
+                        helm_project_name = sh(script:'helm status ecommerceprod --kubeconfig $KUBE_CONFIG', returnStdout: true).trim()
                         writeFile file:"my.txt", text:helm_project_name 
                         helm_project_name = helm_project_name.split("\n")[0]
                     }
@@ -127,16 +127,16 @@ pipeline {
                     }
                     echo "$helm_project_name"
                     if (helm_project_name == "NAME: ecommerce"){
-                        sh 'helm upgrade ecommerce helm/ --kubeconfig $KUBE_CONFIG'
+                        sh 'helm upgrade ecommerceprod helm/ --kubeconfig $KUBE_CONFIG'
                     } else {
-                        sh 'helm install ecommerce helm/ --kubeconfig $KUBE_CONFIG'
+                        sh 'helm install ecommerceprod helm/ --kubeconfig $KUBE_CONFIG'
                     }
                  }
                 
             }
             post{
                 failure{
-                    mail bcc: '', body: '''We have an error in pipeline on k8sDeploy stage while deploying ecommerce project using Kubernetes with the help of Helm package''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
+                    mail bcc: '', body: '''We have an error in pipeline on k8sDeploy stage while deploying ecommerce project using Kubernetes with the help of Helm package in the production stage''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
                 }
                 success{
                     mail bcc: '', body: '''We have sucessfully deployed ecommerce project using kubernetes in the Production stage''', cc: '', from: '', replyTo: 'mudhireddynandu@gmail.com', subject: 'E-commerce App project Status', to: 'mudhireddynandu@gmail.com'
