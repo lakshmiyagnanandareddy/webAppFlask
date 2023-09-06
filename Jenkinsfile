@@ -10,6 +10,8 @@ pipeline {
     environment {
                 DOCKERHUB_CRED = credentials('dockerhubCred')
                 GITPASS = credentials('githubpass')
+                GITMAIL = credentials('githubmail')
+                GITNAME = credentials('githubname')
             }
     stages {
         stage("Cloning project from Github") {
@@ -169,7 +171,10 @@ pipeline {
                         dir(path: 'webAppFlask') {
                             sh 'git remote set-url origin https://lakshmiyagnanandareddy:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                             sh 'git checkout main'
-                            sh 'git merge origin/dev'
+                            sh 'git checkout origin/dev src/main'
+                            sh 'git config --global user.email $GITMAIL"
+                            sh 'git config --global user.name $GITNAME"
+                            sh 'git commit -m "updated to production"
                             sh 'git push -u origin main'
                         }
                     }else{
