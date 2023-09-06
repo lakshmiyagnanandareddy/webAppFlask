@@ -1,9 +1,9 @@
 service:
   spec:
     ports:
-      port: 7777
+      port: 8899
       protocol: "TCP"
-      targetPort: 7777
+      targetPort: 8899
       nodePort: 30999
     type: "NodePort"
 
@@ -15,11 +15,11 @@ deployment:
           image: "nandu9948/jenkins_webapp"
           name: "jenkins-webapp"
           ports:
-            containerPort: 7777
+            containerPort: 8899
           livenessProbe:
             httpGet:
               path: "/webApp/"
-              port: 7777
+              port: 8899
             initialDelaySeconds: 40
             timeoutSeconds: 100
             periodSeconds: 10
@@ -27,7 +27,7 @@ deployment:
           readinessProbe:
             httpGet:
               path: "/webApp/"
-              port: 7777
+              port: 8899
             initialDelaySeconds: 50
             timeoutSeconds: 600
             periodSeconds: 10
