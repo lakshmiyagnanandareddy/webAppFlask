@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: webserverscale
+  namespace: ecommerce
 spec:
   scaleTargetRef:
     apiVersion: {{.Values.autoScaling.spec.scaleTargetRef.apiVersion}}
