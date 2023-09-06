@@ -124,7 +124,13 @@ pipeline {
                     }
                     catch(Exception){
                         helm_project_name = "Creating new project"
+                        try{
                         sh 'kubectl create namespace ecommerce --kubeconfig $KUBE_CONFIG'
+                        } catch (error){
+                            echo "ecommerce namespace is already created"
+                            sh 'kubectl remove namespace ecommerce --kubeconfig $KUBE_CONFIG'
+                            sh 'kubectl create namespace ecommerce --kubeconfig $KUBE_CONFIG'
+                        }
                     }
                     echo "$helm_project_name"
                     if (helm_project_name == "NAME: ecommerce"){
