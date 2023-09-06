@@ -4,6 +4,7 @@ metadata:
   labels:
     app: ecommerceweb
   name: ecommerce-web
+  namespace: ecommerce
 spec:
   selector:
     matchLabels:
@@ -12,6 +13,7 @@ spec:
     metadata:
       labels:
         app: ecommerceweb
+    namespace: ecommerce
     spec:
       containers:
       - image: {{.Values.deployment.spec.template.spec.containers.image}}
