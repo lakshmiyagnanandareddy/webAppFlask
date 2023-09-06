@@ -167,9 +167,9 @@ pipeline {
                     if (approval) {
                          sh 'git clone https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                         dir(path: 'webAppFlask') {
+                            sh 'git remote set-url origin https://lakshmiyagnanandareddy:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                             sh 'git checkout main'
                             sh 'git merge origin/dev'
-                            sh 'git remote set-url origin https://lakshmiyagnanandareddy:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                             sh 'git push -u origin main'
                         }
                     }else{
