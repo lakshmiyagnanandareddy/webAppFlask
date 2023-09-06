@@ -24,7 +24,7 @@ pipeline {
                             echo "$err"
                         }  
                     }
-                    git branch: 'dev', url: 'https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
+                    git branch: 'main', url: 'https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                     stash includes: "**", name:"gitRepo"
                     stash includes: "Dockerfile", name: "dockerfile"
                     stash includes: "helm/**", name: "helmPackage"
