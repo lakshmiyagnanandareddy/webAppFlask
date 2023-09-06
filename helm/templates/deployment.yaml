@@ -4,6 +4,8 @@ metadata:
   labels:
     app: ecommerceweb
   name: ecommerce-web
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   selector:
     matchLabels:
