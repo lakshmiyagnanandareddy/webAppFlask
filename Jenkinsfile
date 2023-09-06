@@ -9,6 +9,7 @@ pipeline {
     }
     environment {
                 DOCKERHUB_CRED = credentials('dockerhubCred')
+                GITPASS = credentials('githubpass')
             }
     stages {
         stage("Cloning project from Github") {
@@ -144,10 +145,10 @@ pipeline {
             }
         }
         stage("merge code to production"){
-            steps{
-               agent {
+            agent {
                 label 'dynamicGit'
                 }
+            steps{
                 script{
                     def approval = false
                     try{
@@ -168,7 +169,7 @@ pipeline {
                         dir(path: 'webAppFlask') {
                             sh 'git checkout main'
                             sh 'git merge dev'
-                            sh 'git remote set-url origin https://lakshmiyagnanandareddy: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@github.com/lakshmiyagnanandareddy/webAppFlask.git'
+                            sh 'git remote set-url origin https://lakshmiyagnanandareddy:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                             sh 'git push -u origin main'
                         }
                     }else{
