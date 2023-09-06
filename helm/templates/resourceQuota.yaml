@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ResourceQuota
 metadata:
   name: compute-resource-quota
+  namespace: ecommerce
 spec:
   hard:
     cpu: {{.Values.quotas.spec.hard.cpu}}
