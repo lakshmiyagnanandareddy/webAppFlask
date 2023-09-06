@@ -172,9 +172,9 @@ pipeline {
                             sh 'git remote set-url origin https://lakshmiyagnanandareddy:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                             sh 'git checkout main'
                             sh 'git checkout origin/dev src/main'
-                            sh 'git config --global user.email $GITMAIL"
-                            sh 'git config --global user.name $GITNAME"
-                            sh 'git commit -m "updated to production"
+                            sh 'git config --global user.email $GITMAIL'
+                            sh 'git config --global user.name $GITNAME'
+                            sh 'git commit -m "updated to production"'
                             sh 'git push -u origin main'
                         }
                     }else{
