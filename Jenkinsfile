@@ -118,18 +118,19 @@ pipeline {
                     unstash "helmPackage"
                     def helm_project_name
                     try{
-                        helm_project_name = sh(script:'helm status ecommerceprod --kubeconfig $KUBE_CONFIG', returnStdout: true).trim()
+                        helm_project_name = sh(script:'helm status ecommerceprod --namespace ecommerce --kubeconfig $KUBE_CONFIG', returnStdout: true).trim()
                         writeFile file:"my.txt", text:helm_project_name 
                         helm_project_name = helm_project_name.split("\n")[0]
                     }
                     catch(Exception){
                         helm_project_name = "Creating new project"
+                        sh 'kubectl create namespace ecommerce --kubeconfig $KUBE_CONFIG'
                     }
                     echo "$helm_project_name"
                     if (helm_project_name == "NAME: ecommerce"){
-                        sh 'helm upgrade ecommerceprod helm/ --kubeconfig $KUBE_CONFIG'
+                        sh 'helm upgrade ecommerceprod helm/ --namespace ecommerce --kubeconfig $KUBE_CONFIG'
                     } else {
-                        sh 'helm install ecommerceprod helm/ --kubeconfig $KUBE_CONFIG'
+                        sh 'helm install ecommerceprod helm/ --namespace ecommerce --kubeconfig $KUBE_CONFIG'
                     }
                  }
                 
