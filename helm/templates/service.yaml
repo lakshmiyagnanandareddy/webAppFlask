@@ -5,6 +5,7 @@ metadata:
   labels:
     app: ecommerceweb
   name: ecommerce-web
+  namespace: ecommerce
 spec:
   ports:
   - port: {{.Values.service.spec.ports.port }}
