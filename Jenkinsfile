@@ -96,8 +96,8 @@ pipeline {
                 unstash 'projectPackage'
                 sh 'mv target/*war .'
                 sh 'docker login -u $DOCKERHUB_CRED_USR -p $DOCKERHUB_CRED_PSW'
-                sh 'docker build -t nandu9948/jenkins_webapp .'
-                sh 'docker push nandu9948/jenkins_webapp'
+                sh 'docker build -t nandu9948/jenkins_webapp_prod .'
+                sh 'docker push nandu9948/jenkins_webapp_prod'
             }
             post{
                 failure{
