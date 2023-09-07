@@ -27,6 +27,7 @@ pipeline {
                             echo err
                         }  
                     }
+                    sh 'git config --global --unset http.proxy'
                     sh 'git clone https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                     stash includes: "**", name:"gitRepo"
                     stash includes: "Dockerfile", name: "dockerfile"
