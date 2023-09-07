@@ -27,7 +27,7 @@ pipeline {
                             echo err
                         }  
                     }
-                    sh 'git clone -b dev https://$GITNAME:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
+                    sh 'git clone -b dev https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                     stash includes: "**", name:"gitRepo"
                     stash includes: "Dockerfile", name: "dockerfile"
                     stash includes: "helm/**", name: "helmPackage"
