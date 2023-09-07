@@ -129,11 +129,11 @@
                     <div class="row w-100 align-items-center g-lg-2">
                         <div class="col-lg-2 text-start">
                             <div class="d-none d-lg-block">
-                                <a href="#" class="navbar-brand text-decoration-none text-dark fw-bold fs-4"><img width="20px" src="cart.png" alt="companyLabel"> SudhaMart</a>
+                                <a href="#" class="navbar-brand text-decoration-none text-dark fw-bold fs-4"><img width="20px" src="cart.png" alt="companyLabel"> EliteMart</a>
                             </div>
                             <div class="d-lg-none justify-content-between d-flex">
                                 <div class="text-start">
-                                    <a href="#" class="navbar-brand text-decoration-none text-dark fw-bold fs-4"><img width="20px" src="cart.png" alt="companyLabel"> SudhaMart</a>
+                                    <a href="#" class="navbar-brand text-decoration-none text-dark fw-bold fs-4"><img width="20px" src="cart.png" alt="companyLabel"> EliteMart</a>
                                 </div>
                                 <div class="list-inline text-end">
                                     <div class="list-inline-item">
@@ -148,7 +148,7 @@
                                           <div class="offcanvas offcanvas-start text-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                                             <div class="offcanvas-header">
                                                 <div class="text-start">
-                                                    <a href="#" class="navbar-brand text-decoration-none text-dark fw-bold fs-4"><img width="20px" src="cart.png" alt="companyLabel"> SudhaMart</a>
+                                                    <a href="#" class="navbar-brand text-decoration-none text-dark fw-bold fs-4"><img width="20px" src="cart.png" alt="companyLabel"> EliteMart</a>
                                                 </div>
                                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                             </div>
