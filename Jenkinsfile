@@ -52,7 +52,7 @@ pipeline {
                         echo err
                     }
                     sh 'docker run -dit -v /workspace/webApp:/project -p 9099:9099 --name myd nandu9948/jenkins_maven:latest'
-                    sh 'docker exec myd /bin/bash -c " slepp 300s && cd /project && mvn jetty:run & sleep 30s && cd /project && mvn package"'
+                    sh 'docker exec myd /bin/bash -c " sleep 300s && cd /project && mvn jetty:run & sleep 30s && cd /project && mvn package"'
                     sh 'docker remove -f myd'
                     stash includes: "target/*.war", name: "projectPackage"
                     }
