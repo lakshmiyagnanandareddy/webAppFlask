@@ -27,7 +27,7 @@ pipeline {
                             echo err
                         }  
                     }
-                    git branch: 'dev', url: 'https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
+                    sh 'git clone -b dev https://$GITNAME:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                     stash includes: "**", name:"gitRepo"
                     stash includes: "Dockerfile", name: "dockerfile"
                     stash includes: "helm/**", name: "helmPackage"
@@ -169,7 +169,7 @@ pipeline {
                     if (approval) {
                          sh 'git clone https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                         dir(path: 'webAppFlask') {
-                            sh 'git remote set-url origin https://lakshmiyagnanandareddy:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
+                            sh 'git remote set-url origin https://$GITNAME:$GITPASS@github.com/lakshmiyagnanandareddy/webAppFlask.git'
                             sh 'git checkout main'
                             sh 'git checkout origin/dev src/main'
                             sh 'git config --global user.email $GITMAIL'
