@@ -175,7 +175,11 @@ pipeline {
                             sh 'git config --global user.email $GITMAIL'
                             sh 'git config --global user.name $GITNAME'
                             sh 'git commit -m "updated to production"'
-                            sh 'git push -u origin main'
+                            try{
+                                sh 'git push -u origin main'
+                            } catch (error) {
+                                echo "there is no changes to push in the source code of webapp"
+                              }
                         }
                     }else{
                         echo "Administrator Denied Approval to move the source code to production stage"
