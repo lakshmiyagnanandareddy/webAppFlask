@@ -128,7 +128,7 @@ pipeline {
                         sh 'kubectl create namespace ecommerce --kubeconfig $KUBE_CONFIG'
                         } catch (error){
                             echo "ecommerce namespace is already created"
-                            sh 'kubectl remove namespace ecommerce --kubeconfig $KUBE_CONFIG'
+                            sh 'kubectl delete namespace ecommerce --kubeconfig $KUBE_CONFIG'
                             sh 'kubectl create namespace ecommerce --kubeconfig $KUBE_CONFIG'
                         }
                     }
