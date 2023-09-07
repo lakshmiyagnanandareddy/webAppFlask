@@ -24,11 +24,10 @@ pipeline {
                         try{
                             sh 'rm -rf /workspace/webApp/*'
                         }catch(err){
-                            echo err
+                            echo "$err"
                         }  
                     }
-                    sh 'git config --global --unset http.proxy'
-                    sh 'git clone https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
+                    git branch: 'dev', url: 'https://github.com/lakshmiyagnanandareddy/webAppFlask.git'
                     stash includes: "**", name:"gitRepo"
                     stash includes: "Dockerfile", name: "dockerfile"
                     stash includes: "helm/**", name: "helmPackage"
