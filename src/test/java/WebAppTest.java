@@ -31,7 +31,7 @@ public class WebAppTest {
 
     @Test
     public void testFruitsAndVegetablesCard() {
-        driver.get("http://107.23.10.93:9099/"); // Replace with your server URL
+        driver.get("http://3.86.146.63:9099/"); // Replace with your server URL
         // String pageSource = driver.getPageSource();
         
          // Locate the card title and content
@@ -40,7 +40,7 @@ public class WebAppTest {
     }
     @Test
     public void testAllGroceriesCard() {
-        driver.get("http://107.23.10.93:9099/"); // Replace with your server URL
+        driver.get("http://3.86.146.63:9099/"); // Replace with your server URL
         // String pageSource = driver.getPageSource();
 
         // Locate the elements within the "All Groceries" card
