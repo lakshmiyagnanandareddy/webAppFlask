@@ -12,7 +12,7 @@ deployment:
     template:
       spec:
         containers:
-          image: "nandu9948/jenkins_webapp"
+          image: "nandu9948/jenkins_webapp_prod"
           name: "jenkins-webapp"
           ports:
             containerPort: 8899
