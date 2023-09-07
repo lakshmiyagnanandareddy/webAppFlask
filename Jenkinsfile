@@ -39,7 +39,7 @@ pipeline {
         
         stage("Testing") {
             agent {
-                label "dockerMaven"
+                label "dockerMavenprod"
             }
              steps{
                  dir(path: '/workspace/webApp') {
@@ -53,6 +53,7 @@ pipeline {
                     }
                     sh 'docker run -dit -v /workspace/webApp:/project -p 9099:9099 --name myd nandu9948/jenkins_maven:latest'
                     sh 'docker exec myd /bin/bash -c "cd /project && mvn jetty:run & sleep 50s && cd /project && mvn package"'
+                    sh 'docker rm -f myd'
                     stash includes: "target/*.war", name: "projectPackage"
                     }
                 }
