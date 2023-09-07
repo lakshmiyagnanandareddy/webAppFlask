@@ -20,15 +20,15 @@ deployment:
             httpGet:
               path: "/webApp/"
               port: 8899
-            initialDelaySeconds: 40
-            timeoutSeconds: 100
+            initialDelaySeconds: 80
+            timeoutSeconds: 200
             periodSeconds: 10
             failureThreshold: 2
           readinessProbe:
             httpGet:
               path: "/webApp/"
               port: 8899
-            initialDelaySeconds: 50
+            initialDelaySeconds: 100
             timeoutSeconds: 600
             periodSeconds: 10
             failureThreshold: 1
