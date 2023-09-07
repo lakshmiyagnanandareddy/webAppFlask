@@ -130,7 +130,7 @@ pipeline {
                     }
                     echo "$helm_project_name"
                     if (helm_project_name == "NAME: ecommerce"){
-                        sh 'helm upgrade ecommerce helm/ --kubeconfig $KUBE_CONFIG'
+                        sh 'helm upgrade ecommerce helm/ --force --kubeconfig $KUBE_CONFIG'
                     } else {
                         sh 'helm install ecommerce helm/ --kubeconfig $KUBE_CONFIG'
                     }
