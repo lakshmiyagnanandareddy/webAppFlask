@@ -1,4 +1,4 @@
-<h1>Project Title</h1><h3>DevOps Excellence: Dockerized Multi-Branch Pipeline with Jenkins, Kubernetes, Helm onAWS</h3>
+<h1>Project Title</h1><h3>DevOps Excellence: Dockerized Multi-Branch Pipeline with Jenkins, Kubernetes, Helm on AWS</h3>
 <h1>Description</h1>
 <p>This project covers various essential concepts, starting with setting up infrastructure on the top of Ec2 instance for Jenkins, Configuring the necessary environment to run multi-branch pipeline like credentials, executable-paths, plugins, etc.., and creating dynamic docker agent for developer and production on the top of Ec2 instance on AWS, Kubernetes for efficient container orchestration to the project deployment,
 In addition Kubernetes, includes Metrics-server which enables real-time monitoring of resources and performance metrics. Helm, a powerful Package manager for Kubernetes, used in the deployment process effectively by managing configurations and charts.
