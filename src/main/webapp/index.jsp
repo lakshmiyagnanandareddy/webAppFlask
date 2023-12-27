@@ -81,6 +81,7 @@
             .tooltip-inner{
                 font-size: 75%;
             }
+
             .popular-products-card:hover{
                 border-color: rgba(233, 24, 24, 0.836);
                 box-shadow: 1px 1px 10px rgba(245, 49, 49, 0.74);
